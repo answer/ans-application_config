@@ -13,12 +13,13 @@ module Ans::ApplicationConfig
       value
     end
     def [](key)
-      I18n.t(key, scope: @scope, default: nil).tap{|value|
+      ::I18n.translate!(key, scope: @scope).tap{|value|
         case value
         when Hash
           break Config.new("#{@scope}.#{key}")
         end
       }
+    rescue ::I18n::MissingTranslationData
     end
   end
 end
