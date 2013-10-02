@@ -20,6 +20,7 @@ module Ans::ApplicationConfig
         end
       }
     rescue ::I18n::MissingTranslationData
+      NilConfig.instance
     end
   end
 end

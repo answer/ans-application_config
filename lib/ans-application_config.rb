@@ -3,6 +3,7 @@ require "ans-application_config/version"
 module Ans
   module ApplicationConfig
     autoload :Config, "ans-application_config/config.rb"
+    autoload :NilConfig, "ans-application_config/nil_config.rb"
 
     include ActiveSupport::Configurable
 
