@@ -43,6 +43,9 @@ Or install it yourself as:
 
 デフォルトの yml のルートスコープはアプリケーションモジュール名を underscore したもの
 
+存在しない設定にアクセスした場合、 Ans::ApplicationConfig.NilConfig のインスタンスを返します  
+このクラスは、存在しないメソッドに対して NilConfig のインスタンスで答え、 `to_s` で空文字列を返します
+
 
 ## 可能な設定とデフォルト
 
