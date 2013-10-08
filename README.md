@@ -46,6 +46,17 @@ Or install it yourself as:
 存在しない設定にアクセスした場合、 Ans::ApplicationConfig.NilConfig のインスタンスを返します  
 このクラスは、存在しないメソッドに対して NilConfig のインスタンスで答え、 `to_s` で空文字列を返します
 
+### 使用できないキー
+
+以下のキーは設定項目として使用できません
+
+* each
+* inspect
+* to_s
+
+これらのメソッドは `Ans::ApplicationConfig::Config` クラスに既に定義されています  
+内部的に、 `method_missing` で対応しているため、 `[]` メソッドでのアクセスは可能ですが、メソッド形式での呼び出しは不可能となります
+
 
 ## 可能な設定とデフォルト
 
