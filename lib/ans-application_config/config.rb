@@ -1,5 +1,7 @@
 module Ans::ApplicationConfig
   class Config
+    include Enumerable
+
     def initialize(scope)
       @scope = scope
     end
@@ -21,6 +23,21 @@ module Ans::ApplicationConfig
       }
     rescue ::I18n::MissingTranslationData
       NilConfig.instance
+    end
+
+    def each(&block)
+      case value = ::I18n.translate!(@scope)
+      when Enumerable
+        value.each(&block)
+      end
+    rescue ::I18n::MissingTranslationData
+    end
+
+    def inspect
+      ::I18n.translate(@scope).inspect
+    end
+    def to_s
+      ::I18n.translate(@scope).to_s
     end
   end
 end
