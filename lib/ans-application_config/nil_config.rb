@@ -8,8 +8,11 @@ module Ans::ApplicationConfig
       NilConfig.instance
     end
 
+    def inspect
+      nil.inspect
+    end
     def to_s
-      ""
+      nil.to_s
     end
   end
 end

@@ -34,7 +34,10 @@ module Ans::ApplicationConfig
     end
 
     def inspect
-      ::I18n.translate(@scope)
+      ::I18n.translate(@scope).inspect
+    end
+    def to_s
+      ::I18n.translate(@scope).to_s
     end
   end
 end
